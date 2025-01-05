@@ -1,7 +1,10 @@
 from .distance_calculation import calculate_distance
 
 def generate_insights(data, region):
-    locations = [loc for loc in data if region.lower() in loc["region"].lower()]
+    locations = []
+    for loc in data:
+      if region.lower() in loc["region"].lower():
+          locations.append(loc)
     if not locations:
         return f"No locations found in {region} region."
 
