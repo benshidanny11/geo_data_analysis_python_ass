@@ -1,11 +1,7 @@
-from geo_analysis.data_handling import get_locations
-from geo_analysis.filtering import filter_by_region
+from geo_analysis.data_handling import get_locations, view_locations
+from geo_analysis.filtering import filter_by_region, search_location
 from geo_analysis.distance_calculation import calculate_distance
 from geo_analysis.insights import generate_insights
-from geo_analysis.location_viewer import view_locations
-from geo_analysis.location_searching import search_location
-
-
 
 
 def main():
@@ -26,7 +22,7 @@ def main():
             region = input("Enter the region to filter (North, South, Central, East, West): ")
             filtered = filter_by_region(data, region)
             if filtered:
-                view_locations(filtered)
+                 view_locations(filtered)
             else:
                 print(f"No locations found in {region} region.")
         elif choice == "3":

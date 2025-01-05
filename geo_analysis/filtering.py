@@ -1,2 +1,11 @@
 def filter_by_region(data, region):
-    return [location for location in data if region.lower() in location["region"].lower()]
+    locations=[]
+    for loc in data:
+        if region.lower() in loc['region'].lower() :
+            locations.append(loc)
+    return locations
+
+def search_location(data, query):
+    for loc in data:
+        if loc['id'] == query or loc['name'].lower() == query.lower():
+           return loc
